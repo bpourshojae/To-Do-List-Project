@@ -1,0 +1,13 @@
+{% extends 'task_app/base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block body_block %}
+<form action="{% url 'task_app:edit_task' task.id %}" method="POST">
+    {% csrf_token %}
+    {{form|crispy}}
+    <input type="submit" value="Submit">
+</form>
+    
+{% endblock body_block %}
+    

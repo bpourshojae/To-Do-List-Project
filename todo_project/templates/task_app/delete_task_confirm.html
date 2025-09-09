@@ -1,0 +1,17 @@
+{% extends 'task_app/base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block body_block %}
+<h1>Are You Sure? You Want To 
+    Delete This Task:
+</h1>
+<form action="{% url 'task_app:delete_task' task.id %}" method='POST'>
+    {% csrf_token %}
+    <h4>{{task.title}}</h4>
+    <button typ='submit' class='btn btn-danger'>YES</button>
+    <a href="{% url 'task_app:task_list' %}" class='btn btn-primary'>NO</a>
+</form>    
+{% endblock body_block %}
+
+    
