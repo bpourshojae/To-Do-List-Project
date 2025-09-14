@@ -1,0 +1,12 @@
+{% extends 'task_app/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block register_body %}
+<form action="{% url 'task_app:register' %}" method="POST">
+{% csrf_token %}
+{{user_form|crispy}}
+{{profile_form|crispy}}
+<button class="btn btn-dark" type="submit">Submit</button>
+</form>   
+{% endblock register_body %}
+    
