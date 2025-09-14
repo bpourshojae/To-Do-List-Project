@@ -41,7 +41,7 @@ def edit_task(request,id_):
             task=task_form.save(commit=False)
             task.user = request.user
             task.save()
-            login(request,user)
+            login(request.user)
             return redirect('task_app:task_list')
     else:
         task_form = TaskForm(instance=task)
